@@ -1,3 +1,8 @@
+create table class_grade(
+	gid int,
+	gname varchar(20) not null,
+	primary key(gid)
+);
 create table class(
 	cid int not null,
 	caption varchar(30) not null,
