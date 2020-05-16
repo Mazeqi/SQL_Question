@@ -52,3 +52,56 @@
 --having COUNT(Sc.cid) >= 2;
 
 ---- 13
+--select max(Tea.tid) as tid, max(Tea.tname) as tname
+--from teacher as Tea, teach2cls as Tecl
+--where Tea.tid = Tecl.tid
+--group by Tecl.tid
+--having COUNT(Tecl.tcid) >= 2;
+
+---- 14
+--select  max(St.sid) as sid, max(St.sname) as sname
+--from student as St , score as Sc
+-- where St.class_id = Sc.cid  and Sc.cid in ('1' , '2')
+-- group by St.sid
+-- having COUNT(St.sid) = 2;
+
+
+---- 15
+--select tid,tname 
+--from  teacher
+--where tid  not in(
+--		select  Tecl.tid as tid
+--		from teacher as Tea, teach2cls as Tecl, class as Cl
+--		where Cl.grade_id >= 5 and Tea.tid = Tecl.tid and Tecl.cid = Cl.cid
+--);
+
+---- 16
+--select St.sid as sid, St.sname as sname , St.class_id
+--from student as St, teacher as Tea, teach2cls as Tcl
+--where Tea.tname = 'ÕÅÈý' and Tea.tid = Tcl.tid and St.class_id = Tcl.cid;
+
+
+---- 17
+--select max(Tea.tid) as tid, max(Tea.tname) as tname
+--from teacher as Tea, teach2cls as Tcl
+--where Tea.tid = Tcl.tid 
+--group by Tea.tid
+--having COUNT(Tea.tid) >= 2;
+
+
+---- 18
+-- select student.sname, student.sid 
+-- from student 
+-- where student.sid in(
+--	select t1.sid 
+--	from 
+--		(select St.sid, Sc.score
+--		from student as St, score as Sc
+--		where Sc.cid = '1' and St.sid = Sc.sid) as t1,
+
+--		(select St.sid,Sc.score
+--		from student as St, score as Sc
+--		where Sc.cid = '2' and St.sid = Sc.sid) as t2
+--	where t1.sid = t2.sid and t1.score >= t2.score
+
+--);

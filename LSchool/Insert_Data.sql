@@ -8,6 +8,7 @@
 --(5 , '五年级'),
 --(6, '六年级');
 
+-- select * from class;
 --insert into class (cid, caption, grade_id)
 --values
 --(1, '一年一班', 1),
@@ -36,6 +37,7 @@
 --(7, '王菲', '女', 6);
 --(8, '小强', '女', 6);
 
+-- select * from teacher;
 --insert into teacher(tid, tname)
 --values
 --(1, '张三'),
@@ -49,8 +51,9 @@
 --(2, '体育', 1),
 --(3, '物理', 2);
 
+select * from score;
 --insert into score(sid, cid, score)
---values
+--values(4,1,100)
 --(2,1,90)
 --(4,3,100)
 --(2,3,90)
@@ -58,8 +61,10 @@
 --(1,2,59),
 --(2,2,99)
 
+select * from teach2cls;
 --insert into teach2cls(tcid, tid, cid)
 --values
+--(6,2,12)
 --(7,4,2)
 --(1,1,1),
 --(2,1,2),
