@@ -51,17 +51,17 @@
 --(2, '体育', 1),
 --(3, '物理', 2);
 
-select * from score;
+--select * from score;
 --insert into score(sid, cid, score)
---values(4,1,100)
---(2,1,90)
+--values(3,1,50),
+--(2,1,90),
 --(4,3,100)
 --(2,3,90)
 --(1,1,60),
 --(1,2,59),
 --(2,2,99)
 
-select * from teach2cls;
+--select * from teach2cls;
 --insert into teach2cls(tcid, tid, cid)
 --values
 --(6,2,12)

@@ -105,3 +105,66 @@
 --	where t1.sid = t2.sid and t1.score >= t2.score
 
 --);
+
+
+---- 20
+--select distinct St.sid, St.sname
+--from student as St, score as Sc
+--where St.sid = Sc.sid and Sc.score < 60;
+
+
+---- 21
+--select max(St.sid) as sid, max(St.sname) sname
+--from student as St, score as Sc
+--where St.sid = Sc.sid 
+--group by Sc.sid
+--having count(Sc.cid) < (select count(*) from course);
+
+---- 22
+--select distinct St.sid, St.sname
+--from student as St, score as Sc
+--where St.sid = Sc.sid and Sc.cid in(
+--	select Sc.cid
+--	from score as Sc
+--	where Sc.sid = '1'
+--);
+
+
+---- 23
+--select distinct St.sid, St.sname
+--from student as St, score as Sc
+--where St.sid != '1' and St.sid = Sc.sid and Sc.cid in(
+--	select Sc.cid
+--	from score as Sc
+--	where Sc.sid = '1'
+--);
+
+---- 24
+--select max(St.sid) as sid , max(St.sname) as sname
+--from student as St ,score as Sc, (select Sc.cid from score as Sc where Sc.sid = '2') as t1
+--where St.sid = Sc.sid and St.sid != '2' and t1.cid = Sc.cid
+--group by Sc.sid 
+--having COUNT(Sc.cid) = (select COUNT(*) from score  as Sc where Sc.sid = '2');
+
+
+---- 25
+--delete  from score 
+--where score.cid in (
+--	 select teach2cls.cid 
+--	 from teach2cls,teacher
+--	 where teacher.tname = 'ÕÅÈý' and teacher.tid = teach2cls.tid
+--);
+
+---- 29
+--select Sc.cid,avg(Sc.score) as avg_score,
+--(cast(sum(case when Sc.score>= 60 then 1 else 0 end) as float)/cast(count(*) as float)*100.0) as per
+--from score as Sc
+--group by Sc.cid
+--order by AVG(Sc.score)asc , per  desc;
+--select * from score;
+
+---- 30
+--select Sc.cid,avg(Sc.score) as avg_score
+--from score as Sc
+--group by Sc.cid
+--order by AVG(Sc.score) desc ;
