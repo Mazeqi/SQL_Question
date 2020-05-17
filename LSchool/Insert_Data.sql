@@ -43,6 +43,7 @@
 -- select * from teacher;
 --insert into teacher(tid, tname)
 --values
+--(5,'小白')
 --(1, '张三'),
 --(2, '李四'),
 --(3, '王五')
@@ -55,6 +56,8 @@
 --(1, '生物', 1),
 --(2, '体育', 1),
 --(3, '物理', 2);
+--(6,'政治',1)
+
 
 --select * from score;
 --insert into score(sid, cid, score)

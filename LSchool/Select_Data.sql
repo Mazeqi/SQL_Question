@@ -233,6 +233,51 @@
 --where Sc.score = t1.score and Sc.cid <> t1.cid and St.sid = Sc.sid and Sc.sid = t1.sid;
 
 ---- 45
-select St.sid, St.sname
-from score as Sc , student as St
+--select max(St.sid) sid, max(St.sname) sname, COUNT(Sc.cid) num_co 
+--from score as Sc , student as St 
+--where Sc.sid = St.sid
+--group by Sc.sid
+--having COUNT(Sc.cid) > 2;
 
+
+---- 46
+--select max(Co.cid) cid ,max(Co.cname) cname
+--from  course as Co left join  score as Sc
+--on Co.cid = Sc.cid
+--group by Co.cid
+--having COUNT(Sc.sid) < 1;
+
+
+---- 47
+--select max(Tea.tid)tid, max(Tea.tname) tname
+--from teacher as Tea left join teach2cls as Tcl
+--on Tea.tid = Tcl.tid
+--group by Tcl.tid
+--having COUNT(Tcl.tcid) <= 1;
+
+---- 48
+--select Sc.sid, AVG(Sc.score) avg_score
+--from score as Sc
+--where  Sc.score > 80
+--group by Sc.sid
+--having COUNT(Sc.cid) >= 2
+
+---- 49
+--select Sc.sid, Sc.score
+--from score as Sc 
+--where Sc.cid = '3' and Sc.score <= 100
+--order by Sc.score desc;
+
+---- 50
+--delete from score where score.cid = '1' and score.sid ='1';
+
+---- 51
+--select distinct  max(St.sid) sid, max(St.sname) sname
+--from student as St, score as Sc,(
+--	  select Sc.sid,Sc.cid from score as Sc where Sc.cid in(
+--		   select Co.cid from course as Co where Co.cname in ('物理','生物')
+--	  ) 
+--) as t1 
+--where St.sid = t1.sid and Sc.cid = t1.cid and St.sid = Sc.sid
+--group by Sc.sid
+--having COUNT(Sc.cid) = 2 ;
