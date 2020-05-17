@@ -168,3 +168,71 @@
 --from score as Sc
 --group by Sc.cid
 --order by AVG(Sc.score) desc ;
+
+
+---- 32
+--select Co.cid, t1.num_Co
+--from course as Co left join (select COUNT(Sc.sid) as num_Co, Sc.cid from score as Sc group by Sc.cid) as t1 
+--on Co.cid = t1.cid;
+
+
+---- 33
+--select max(St.sid) sid, max(St.sname) sname,COUNT(Sc.cid) num_co
+--from student as St, score as Sc
+--where St.sid = Sc.sid
+--group by Sc.sid
+--having COUNT(Sc.cid) >= 2;
+
+
+---- 34
+--select St.gender,count(St.gender) num_gender
+--from student as St
+--group by St.gender;
+
+---- 35
+--select COUNT(St.sid) num_z, max(St.sname) sname
+--from student as St
+--where St.sname like 'ÕÅ%';
+
+
+---- 36
+--select  max(St.sname) sname, COUNT(St.sid) num_R
+--from student as St
+--group by St.sname
+--having COUNT(St.sid)>1;
+
+
+---- 37
+--select AVG(Sc.score) as Score_c, Sc.cid
+--from score as Sc
+--group by Sc.cid
+--order by AVG(Sc.score) asc, Sc.cid desc;
+
+---- 38
+--select St.sid, Sc.score, St.sname
+--from student as St,score as Sc, course as Co
+--where St.sid = Sc.sid and Co.cid = Sc.cid and Co.cname = 'ÊýÑ§' and Sc.score < 60;
+
+
+---- 39
+--select St.sid, St.sname
+--from student as St , score as Sc
+--where St.sid = Sc.sid and Sc.score > 80 and Sc.cid = '3';
+
+
+---- 42
+--select max(Co.cid) as cid,COUNT(Sc.cid) as num
+--from course as Co left join score as Sc
+--on Co.cid = Sc.cid
+--group by Sc.cid;
+
+
+---- 43
+--select St.sid,Sc.cid,Sc.score
+--from student as St, score as Sc,(select Sc.cid,Sc.sid, Sc.score from score as Sc) as t1
+--where Sc.score = t1.score and Sc.cid <> t1.cid and St.sid = Sc.sid and Sc.sid = t1.sid;
+
+---- 45
+select St.sid, St.sname
+from score as Sc , student as St
+

@@ -28,6 +28,7 @@
 
 --insert into student (sid, sname, gender, class_id)
 --values
+--(10,'小李','男',6)
 --(1, '乔丹', '女', 1),
 --(2, '艾佛森', '女', 1),
 --(3, '科比', '女', 2),
@@ -36,6 +37,8 @@
 --(6, '周慧敏', '女', 5),
 --(7, '王菲', '女', 6);
 --(8, '小强', '女', 6);
+--(11,'张罩钟','男',6)
+--(12,'张罩钟','女',5)
 
 -- select * from teacher;
 --insert into teacher(tid, tname)
@@ -47,19 +50,25 @@
 
 --insert into course(cid, cname, teacher_id)
 --values
+--(5,'语文',4)
+--(4,'数学',3)
 --(1, '生物', 1),
 --(2, '体育', 1),
 --(3, '物理', 2);
 
 --select * from score;
 --insert into score(sid, cid, score)
---values(3,1,50),
+--values
+--(4,2,100)
+--(3,1,50),
 --(2,1,90),
 --(4,3,100)
 --(2,3,90)
 --(1,1,60),
 --(1,2,59),
 --(2,2,99)
+--(3,4,98)
+
 
 --select * from teach2cls;
 --insert into teach2cls(tcid, tid, cid)
